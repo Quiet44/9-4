@@ -29,5 +29,11 @@ addGuestButton.addEventListener("click", function () {
     const listItem = document.createElement("li");
     listItem.innerText = guest;
     guestList.append(listItem);
-  };
   
+  if (guests.length === 8) {
+    addGuestButton.classList.add("hide");
+    guestInput.classList.add("hide");
+    guestInputLabel.classList.add("hide");
+    guestFull.classList.remove("hide");
+  }
+};

@@ -6,25 +6,30 @@ const guestCount = document.querySelector(".attendance");
 const guestFull = document.querySelector(".alert");
 const assignButton = document.querySelector(".assign");
 const assignedItems = document.querySelector(".assigned-items");
+
 addGuestButton.addEventListener("click", function () {
     const guest = guestInput.value;
-    // console.log(guest);
     if (guest !== "") {
-      const listItem = document.createElement("li");
-      listItem.innerText = guest;
-      guestList.append(listItem);
+      addToList(guest);
+      updateGuestCount();
       clearInput();
     }
   });
   
-  const clearInput = function () {
-    guestInput.value = "";
-  };
   const addToList = function (guest) {
     const listItem = document.createElement("li");
     listItem.innerText = guest;
     guestList.append(listItem);
+  };
+
+  const clearInput = function () {
+    guestInput.value = "";
+  };
   
+  const updateGuestCount = function () {
+    const guests = document.querySelectorAll(".guest-list li");
+    guestCount.innerText = guests.length;
+
   if (guest.length === 8) {
     addGuestButton.classList.add("hide");
     guestInput.classList.add("hide");
@@ -32,6 +37,7 @@ addGuestButton.addEventListener("click", function () {
     guestFull.classList.remove("hide");
   }
 };
+
 const assignItems = function () {
   const potluckItems = [
     "cheese",

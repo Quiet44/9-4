@@ -8,27 +8,27 @@ const assignButton = document.querySelector(".assign");
 const assignedItems = document.querySelector(".assigned-items");
 
 addGuestButton.addEventListener("click", function () {
-    const guest = guestInput.value;
-    if (guest !== "") {
-      addToList(guest);
-      updateGuestCount();
-      clearInput();
-    }
-  });
-  
-  const addToList = function (guest) {
-    const listItem = document.createElement("li");
-    listItem.innerText = guest;
-    guestList.append(listItem);
-  };
+  const guest = guestInput.value;
+  if (guest !== "") {
+    addToList(guest);
+    updateGuestCount();
+    clearInput();
+  }
+});
 
-  const clearInput = function () {
-    guestInput.value = "";
-  };
-  
-  const updateGuestCount = function () {
-    const guests = document.querySelectorAll(".guest-list li");
-    guestCount.innerText = guests.length;
+const addToList = function (guest) {
+  const listItem = document.createElement("li");
+  listItem.innerText = guest;
+  guestList.append(listItem);
+};
+
+const clearInput = function () {
+  guestInput.value = "";
+};
+
+const updateGuestCount = () => {
+  const guest = document.querySelectorAll(".guest-list li");
+  guestCount.innerText = guest.length;
 
   if (guest.length === 8) {
     addGuestButton.classList.add("hide");
